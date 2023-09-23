@@ -61,7 +61,9 @@ class ViewController: UIViewController {
     private func fillgradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.white.cgColor]
+        let firstColor = UIColor(red: 215 / 255, green: 195 / 255, blue: 252 / 255, alpha: 1)
+        let secondColor = UIColor(red: 245 / 255, green: 255 / 255, blue: 104 / 255, alpha: 1)
+        gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
         gradientLayer.locations = [0.2, 0.8]
         view.layer.addSublayer(gradientLayer)
     }
@@ -69,6 +71,8 @@ class ViewController: UIViewController {
     private func setupLayout() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         parentStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
