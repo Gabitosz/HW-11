@@ -10,7 +10,6 @@ import SnapKit
 
 class ViewController: UIViewController {
     private let titleLabel = UILabel()
-    private let parentStackView = UIStackView()
     private let loginTextField = UITextField()
     private let passwordTextField = UITextField()
     override func viewDidLoad() {
@@ -23,12 +22,10 @@ class ViewController: UIViewController {
     
     
     private func setupView() {
-        parentStackView.axis = .vertical
-        parentStackView.spacing = 20
         
         // Кастомизация Title Label
         titleLabel.text = "Login"
-        titleLabel.textColor = .black
+        titleLabel.textColor = .white
         titleLabel.font = .boldSystemFont(ofSize: 28)
         titleLabel.textAlignment = .center
         
@@ -39,7 +36,7 @@ class ViewController: UIViewController {
         loginTextField.textColor = .black
         loginTextField.textAlignment = .center
         loginTextField.layer.masksToBounds = true
-        loginTextField.layer.cornerRadius = 18
+        loginTextField.layer.cornerRadius = 25
         
         passwordTextField.placeholder = "Password"
         passwordTextField.borderStyle = .roundedRect
@@ -47,15 +44,15 @@ class ViewController: UIViewController {
         passwordTextField.textColor = .black
         passwordTextField.textAlignment = .center
         passwordTextField.layer.masksToBounds = true
-        passwordTextField.layer.cornerRadius = 18
+        passwordTextField.layer.cornerRadius = 25
         
     }
     
     private func setupHierarchy() {
         view.addSubview(titleLabel)
-        view.addSubview(parentStackView)
-        parentStackView.addArrangedSubview(loginTextField)
-        parentStackView.addArrangedSubview(passwordTextField)
+        view.addSubview(loginTextField)
+        view.addSubview(passwordTextField)
+    
     }
     
     private func fillgradient() {
@@ -70,17 +67,27 @@ class ViewController: UIViewController {
     
     private func setupLayout() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        parentStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+        loginTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 160),
-            parentStackView.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 50),
-            view.rightAnchor.constraint(equalTo: parentStackView.rightAnchor,constant: 50),
-            parentStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
         ])
+        
+        loginTextField.snp.makeConstraints { maker in
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(300)
+            maker.top.equalToSuperview().inset(250)
+            maker.height.equalTo(50)
+        }
+        
+        passwordTextField.snp.makeConstraints { maker in
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(300)
+            maker.top.equalToSuperview().inset(320)
+            maker.height.equalTo(50)
+        }
     }
 }
 
