@@ -10,12 +10,11 @@ import UIKit
 class ViewController: UIViewController {
     private let titleLabel = UILabel()
     private let parentStackView = UIStackView()
-    
+    private let loginTextField = UITextField()
+    private let passwordTextField = UITextField()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bezierBackground = BezierBackgroundView()
-        bezierBackground.frame = view.bounds
-        view.addSubview(bezierBackground)
+        fillgradient()
         setupView()
         setupHierarchy()
         setupLayout()
