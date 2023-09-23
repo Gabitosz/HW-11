@@ -13,7 +13,6 @@
 		03CA2A932ABCF73F0068533E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CA2A912ABCF73F0068533E /* Main.storyboard */; };
 		03CA2A952ABCF73F0068533E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CA2A942ABCF73F0068533E /* Assets.xcassets */; };
 		03CA2A982ABCF73F0068533E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CA2A962ABCF73F0068533E /* LaunchScreen.storyboard */; };
-		03CA2AA02ABCFB270068533E /* BezierBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA2A9F2ABCFB270068533E /* BezierBackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		03CA2A942ABCF73F0068533E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03CA2A972ABCF73F0068533E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03CA2A992ABCF73F0068533E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03CA2A9F2ABCFB270068533E /* BezierBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierBackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +59,6 @@
 				03CA2A8B2ABCF73F0068533E /* AppDelegate.swift */,
 				03CA2A8D2ABCF73F0068533E /* SceneDelegate.swift */,
 				03CA2A8F2ABCF73F0068533E /* ViewController.swift */,
-				03CA2A9F2ABCFB270068533E /* BezierBackgroundView.swift */,
 				03CA2A912ABCF73F0068533E /* Main.storyboard */,
 				03CA2A942ABCF73F0068533E /* Assets.xcassets */,
 				03CA2A962ABCF73F0068533E /* LaunchScreen.storyboard */,
@@ -142,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03CA2A902ABCF73F0068533E /* ViewController.swift in Sources */,
-				03CA2AA02ABCFB270068533E /* BezierBackgroundView.swift in Sources */,
 				03CA2A8C2ABCF73F0068533E /* AppDelegate.swift in Sources */,
 				03CA2A8E2ABCF73F0068533E /* SceneDelegate.swift in Sources */,
 			);
