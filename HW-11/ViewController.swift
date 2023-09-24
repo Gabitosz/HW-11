@@ -17,13 +17,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private let orWithText = UILabel()
     private let rightLine = UIView()
     private let leftLine = UIView()
-    private let facebookButton = UIButton(type: .custom)
-    private let twitterButton = UIButton(type: .custom)
+    private let facebookButton = UIButton(type: .system)
+    private let twitterButton = UIButton(type: .system)
     private let loginImage = UIImage(systemName: "person")
     private let passwordImage = UIImage(systemName: "lock")
     private let checkMarkImage = UIImage(systemName: "checkmark.circle.fill")
     private let facebookImage = UIImage(named: "facebook-logo")
     private let twitterImage = UIImage(named: "twitter-logo")
+    private let signUpQuestion = UILabel()
+    private let signUpText = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         titleLabel.text = "Login"
         titleLabel.textColor = .white
-        titleLabel.font = .boldSystemFont(ofSize: 28)
+        titleLabel.font = .boldSystemFont(ofSize: 32)
         titleLabel.textAlignment = .center
         
         // Кастомизация Text Login Text Field
@@ -133,6 +135,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let twitterImageFrame = CGRect(x: 15, y: 10, width: 20, height: 20)
         twitterImageView.frame = twitterImageFrame
         twitterButton.addSubview(twitterImageView)
+        
+        // Кастомизация Sign up
+        
+        signUpQuestion.text = "Don't have account?"
+        signUpQuestion.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.50)
+        signUpText.text = "Sign up"
+        signUpText.textColor = UIColor(red: 146 / 255, green: 141 / 255, blue: 167 / 255, alpha: 1)
     }
     
     private func setupHierarchy() {
@@ -146,6 +155,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(leftLine)
         view.addSubview(facebookButton)
         view.addSubview(twitterButton)
+        view.addSubview(signUpQuestion)
+        view.addSubview(signUpText)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -183,26 +194,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         NSLayoutConstraint.activate([
             
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 130),
             titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -130),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 55),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 60),
             loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
             loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
             
-            rightLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160),
+            rightLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -190),
             rightLine.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
             rightLine.leftAnchor.constraint(equalTo: orWithText.rightAnchor, constant: 10),
             rightLine.heightAnchor.constraint(equalToConstant: 1.0),
             
-            leftLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160),
+            leftLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -190),
             leftLine.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
             leftLine.rightAnchor.constraint(equalTo: orWithText.leftAnchor, constant: -10),
             leftLine.heightAnchor.constraint(equalToConstant: 1.0),
             
             forgotPassword.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            orWithText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            orWithText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -180),
             
             
         ])
@@ -210,19 +221,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginTextField.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
             maker.width.equalTo(300)
-            maker.top.equalToSuperview().inset(210)
+            maker.top.equalToSuperview().inset(180)
             maker.height.equalTo(50)
         }
         
         passwordTextField.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
             maker.width.equalTo(300)
-            maker.top.equalToSuperview().inset(280)
+            maker.top.equalToSuperview().inset(250)
             maker.height.equalTo(50)
         }
         
         loginButton.snp.makeConstraints { maker in
-            maker.width.equalTo(300)
+            maker.width.equalTo(250)
             maker.height.equalTo(50)
         }
         
@@ -237,16 +248,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         facebookButton.snp.makeConstraints { maker in
             maker.left.equalToSuperview().inset(20)
             maker.width.equalTo(160)
-            maker.bottom.equalToSuperview().inset(90)
+            maker.bottom.equalToSuperview().inset(110)
             maker.height.equalTo(40)
         }
         
         twitterButton.snp.makeConstraints { maker in
             maker.right.equalToSuperview().inset(20)
             maker.width.equalTo(160)
-            maker.bottom.equalToSuperview().inset(90)
+            maker.bottom.equalToSuperview().inset(110)
             maker.height.equalTo(40)
         }
+        
+        signUpQuestion.snp.makeConstraints { maker in
+            maker.left.equalToSuperview().inset(70)
+            maker.bottom.equalToSuperview().inset(60)
+        }
+        
+        signUpText.snp.makeConstraints { maker in
+            maker.right.equalToSuperview().inset(85)
+            maker.bottom.equalToSuperview().inset(60)
+        }
+        
     }
 }
 
