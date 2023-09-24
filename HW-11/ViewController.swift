@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         titleLabel.font = .boldSystemFont(ofSize: 32)
         titleLabel.textAlignment = .center
         
-        // Кастомизация Text Login Text Field
+        // Кастомизация Text Login / Text Field
         
         loginTextField.placeholder = "Username"
         loginTextField.borderStyle = .roundedRect
@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         loginTextField.textAlignment = .center
         loginTextField.layer.masksToBounds = true
         loginTextField.layer.cornerRadius = 25
+        
         if let image = loginImage {
             let changedColorImage = image.withTintColor(.gray, renderingMode: .alwaysOriginal)
             loginTextField.setLeftIcon(changedColorImage)
@@ -70,6 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.masksToBounds = true
         passwordTextField.layer.cornerRadius = 25
         passwordTextField.isSecureTextEntry = true
+        
         if let image = passwordImage {
             let changedColorImage = image.withTintColor(.gray, renderingMode: .alwaysOriginal)
             passwordTextField.setLeftIcon(changedColorImage)
@@ -99,6 +101,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         orWithText.text = "or connect with"
         orWithText.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.50)
         
+        // Правая и левая линия
+        
         rightLine.layer.borderWidth = 1.0
         rightLine.layer.borderColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1).cgColor
         leftLine.layer.borderWidth = 1.0
@@ -116,6 +120,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         facebookButton.layer.shadowRadius = 10
         facebookButton.layer.shouldRasterize = true
         facebookButton.layer.rasterizationScale = UIScreen.main.scale
+        
         let facebookimageView = UIImageView(image: facebookImage)
         let facebookImageFrame = CGRect(x: 15, y: 10, width: 20, height: 20)
         facebookimageView.frame = facebookImageFrame
@@ -131,6 +136,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         twitterButton.layer.shadowRadius = 10
         twitterButton.layer.shouldRasterize = true
         twitterButton.layer.rasterizationScale = UIScreen.main.scale
+        
         let twitterImageView = UIImageView(image: twitterImage)
         let twitterImageFrame = CGRect(x: 15, y: 10, width: 20, height: 20)
         twitterImageView.frame = twitterImageFrame
@@ -159,6 +165,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(signUpText)
     }
     
+    // Проверка, если что-то введено в поле, тогда галочка появляется
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         if !updatedText.isEmpty {
@@ -171,6 +179,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
+    // Заливка фона
     
     private func fillgradient() {
         let gradientLayer = CAGradientLayer()
@@ -214,8 +224,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             forgotPassword.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             orWithText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -180),
-            
-            
         ])
         
         loginTextField.snp.makeConstraints { maker in
@@ -268,7 +276,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             maker.right.equalToSuperview().inset(85)
             maker.bottom.equalToSuperview().inset(60)
         }
-        
     }
 }
 
