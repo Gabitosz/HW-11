@@ -37,8 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     private func setupView() {
-        
         // Кастомизация Title Label
+        
         titleLabel.text = "Login"
         titleLabel.textColor = .white
         titleLabel.font = .boldSystemFont(ofSize: 28)
@@ -91,7 +91,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         forgotPassword.text = "Forgot your password?"
         forgotPassword.textColor = .white
-
+        
         // Кастомизация Or With
         
         orWithText.text = "or connect with"
@@ -118,7 +118,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let facebookImageFrame = CGRect(x: 15, y: 10, width: 20, height: 20)
         facebookimageView.frame = facebookImageFrame
         facebookButton.addSubview(facebookimageView)
-        
         
         twitterButton.backgroundColor = UIColor(red: 81 / 255, green: 114 / 255, blue: 181 / 255, alpha: 1)
         twitterButton.setTitle("Twitter", for: .normal)
@@ -147,19 +146,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(leftLine)
         view.addSubview(facebookButton)
         view.addSubview(twitterButton)
-    
     }
     
-     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-         if !updatedText.isEmpty {
+        if !updatedText.isEmpty {
             if let image = checkMarkImage {
                 let changedColorImage = image.withTintColor(.green, renderingMode: .alwaysOriginal)
                 textField.setRightIcon(changedColorImage)
             }
-         } else {
-             textField.rightView?.isHidden = true
-         }
+        } else {
+            textField.rightView?.isHidden = true
+        }
         return true
     }
     
@@ -179,65 +177,74 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         rightLine.translatesAutoresizingMaskIntoConstraints = false
         leftLine.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPassword.translatesAutoresizingMaskIntoConstraints = false
+        orWithText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 160),
-            titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -150),
             
-            rightLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -230),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 110),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 130),
+            titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -130),
+            
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 55),
+            loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
+            loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
+            
+            rightLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160),
             rightLine.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
             rightLine.leftAnchor.constraint(equalTo: orWithText.rightAnchor, constant: 10),
             rightLine.heightAnchor.constraint(equalToConstant: 1.0),
             
-            leftLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -230),
+            leftLine.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160),
             leftLine.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
             leftLine.rightAnchor.constraint(equalTo: orWithText.leftAnchor, constant: -10),
             leftLine.heightAnchor.constraint(equalToConstant: 1.0),
+            
+            forgotPassword.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            orWithText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            
+            
         ])
         
         loginTextField.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
             maker.width.equalTo(300)
-            maker.top.equalToSuperview().inset(250)
+            maker.top.equalToSuperview().inset(210)
             maker.height.equalTo(50)
         }
         
         passwordTextField.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
             maker.width.equalTo(300)
-            maker.top.equalToSuperview().inset(320)
+            maker.top.equalToSuperview().inset(280)
             maker.height.equalTo(50)
         }
         
         loginButton.snp.makeConstraints { maker in
-            maker.centerX.equalToSuperview()
             maker.width.equalTo(300)
-            maker.bottom.equalToSuperview().inset(370)
             maker.height.equalTo(50)
         }
         
         forgotPassword.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.bottom.equalToSuperview().inset(330)
         }
         
         orWithText.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.bottom.equalToSuperview().inset(220)
         }
         
         facebookButton.snp.makeConstraints { maker in
             maker.left.equalToSuperview().inset(20)
-            maker.width.equalTo(170)
-            maker.bottom.equalToSuperview().inset(140)
+            maker.width.equalTo(160)
+            maker.bottom.equalToSuperview().inset(90)
             maker.height.equalTo(40)
         }
-    
+        
         twitterButton.snp.makeConstraints { maker in
             maker.right.equalToSuperview().inset(20)
-            maker.width.equalTo(170)
-            maker.bottom.equalToSuperview().inset(140)
+            maker.width.equalTo(160)
+            maker.bottom.equalToSuperview().inset(90)
             maker.height.equalTo(40)
         }
     }
